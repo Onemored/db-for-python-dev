@@ -105,7 +105,7 @@ def find_client(cur, first_name=None, last_name=None, email=None, phone=None):
     SELECT clients.client_id, first_name, last_name, email, phone 
     FROM clients 
     JOIN phones ON clients.client_id = phones.client_id
-    WHERE""" + ' AND '.join(conditions)
+    WHERE """ + ' AND '.join(conditions)
     cur.execute(query, params)
     print(cur.fetchall())
 
@@ -126,7 +126,7 @@ if __name__ == "__main__":
             # delete_phone(cur, 1, '89555555555')
             # delete_client(cur,'1')
             # delete_client(cur,'2')
-            find_client(cur,phone="89222222222")
-            find_client(cur, first_name='Ольга')
+            find_client(cur, phone="89222222222")
+            find_client(cur, first_name='Ольга', last_name='Punya')
             find_client(cur, )
     conn.close()

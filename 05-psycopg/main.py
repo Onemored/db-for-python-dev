@@ -101,12 +101,11 @@ def find_client(cur, first_name=None, last_name=None, email=None, phone=None):
         conditions.append("phone LIKE %s")
         params.append(f'%{phone}%')
 
-    query = f"""
+    query = """
     SELECT clients.client_id, first_name, last_name, email, phone 
     FROM clients 
     JOIN phones ON clients.client_id = phones.client_id
-    WHERE {' AND '.join(conditions)}
-    """
+    WHERE""" + ' AND '.join(conditions)
     cur.execute(query, params)
     print(cur.fetchall())
 

@@ -3,8 +3,8 @@ import psycopg2
 
 def create_db(cur):
     cur.execute("""
-    		    DROP TABLE phones;
-                DROP TABLE clients;
+    		    DROP TABLE IF EXISTS phones;
+                DROP TABLE IF EXISTS clients;
     	    """)
 
     cur.execute("""
